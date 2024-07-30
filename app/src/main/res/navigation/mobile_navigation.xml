@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.lumastech.chapp.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="com.lumastech.chapp.ui.profile.ProfileFragment"
+        android:label="@string/my_profile"
+        tools:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@+id/nav_maps"
+        android:name="com.lumastech.chapp.ui.features.MapsFragment"
+        android:label="Maps"
+        tools:layout="@layout/fragment_maps"/>
+
+    <fragment
+        android:id="@+id/nav_bmi"
+        android:name="com.lumastech.chapp.ui.features.BmiFragment"
+        android:label="BMI Calculator"
+        tools:layout="@layout/fragment_bmi"/>
+
+    <fragment
+        android:id="@+id/nav_health_centers"
+        android:name="com.lumastech.chapp.ui.features.CentersFragment"
+        android:label="Health Centers"
+        tools:layout="@layout/fragment_centers"/>
+
+    <fragment
+        android:id="@+id/nav_sos_settings"
+        android:name="com.lumastech.chapp.ui.settings.SosSettingsFragment"
+        android:label="@string/sos_settings"
+        tools:layout="@layout/fragment_sos_settings"/>
+
+<!--    <fragment-->
+<!--        android:id="@+id/nav_settings"-->
+<!--        android:name="com.lumastech.chapp.ui.settings.SettingsFragment"-->
+<!--        android:label="@string/action_settings"-->
+<!--        tools:layout="@layout/fragment_settings"/>-->
+
+    <fragment
+        android:id="@+id/nav_settings"
+        android:name="com.lumastech.chapp.ui.profile.ProfileUpdateFragment"
+        android:label="Profile Update"
+        tools:layout="@layout/fragment_profile_update"/>
+</navigation>

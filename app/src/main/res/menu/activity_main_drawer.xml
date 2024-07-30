@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/baseline_home_24"
+            android:title="@string/menu_home" />
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/baseline_account_circle_24"
+            android:title="@string/my_profile" />
+
+        <item
+            android:id="@+id/nav_maps"
+            android:icon="@drawable/baseline_map_24"
+            android:title="@string/maps" />
+
+        <item
+            android:id="@+id/nav_bmi"
+            android:icon="@drawable/baseline_calculate_24"
+            android:title="BMI Calculator" />
+
+        <item
+            android:id="@+id/nav_health_centers"
+            android:icon="@drawable/baseline_local_hospital_24"
+            android:title="Health Centers" />
+
+        <item
+            android:id="@+id/nav_sos_settings"
+            android:icon="@drawable/baseline_system_security_update_warning_24"
+            android:title="@string/sos_settings" />
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/baseline_settings_24"
+            android:title="@string/action_settings" />
+    </group>
+</menu>

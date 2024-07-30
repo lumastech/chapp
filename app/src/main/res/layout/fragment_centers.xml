@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.features.CentersFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:orientation="vertical">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Search health Centers"
+                android:drawableEnd="@drawable/baseline_search_24"
+                android:drawableTint="@color/teal_200"
+                android:drawablePadding="16dp"
+                android:padding="16dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nearby Health Centers"
+                android:textSize="8pt"
+                android:layout_marginTop="32dp"
+                android:textColor="@color/teal_200"
+                android:drawableStart="@drawable/baseline_map_24"
+                android:drawableTint="@color/teal_200"
+                android:drawablePadding="16dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_light"
+                android:layout_marginTop="16dp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/center_item"
+                android:padding="16dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>
