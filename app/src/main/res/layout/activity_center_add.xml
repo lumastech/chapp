@@ -16,21 +16,31 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+
             android:padding="16dp">
 
-            <ImageView
-                android:id="@+id/IVPreviewImage"
-                android:layout_width="wrap_content"
-                android:layout_height="213dp"
-                android:layout_marginTop="15dp"
-                tools:srcCompat="@tools:sample/backgrounds/scenic" />
-
-            <Button
-                android:id="@+id/BSelectImage"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Add image"
-                android:textColor="@color/white"/>
+                android:orientation="vertical"
+                android:background="@drawable/outline_black"
+                android:padding="2dp">
+
+                <ImageView
+                    android:id="@+id/IVPreviewImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="213dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/placeholder_image"
+                    tools:srcCompat="@tools:sample/backgrounds/scenic" />
+                <Button
+                    android:id="@+id/BSelectImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Add image"
+                    android:textColor="@color/white"/>
+            </LinearLayout>
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -203,10 +213,10 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Location" />
+                            android:text="Latitude (Auto fill)" />
 
                         <EditText
-                            android:id="@+id/coordinates"
+                            android:id="@+id/lat"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@drawable/bg_oultline"
@@ -214,6 +224,37 @@
                             android:textColor="@color/teal_200"
                             android:textSize="10pt" />
                     </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Longitude (Auto fill)" />
+
+                        <EditText
+                            android:id="@+id/lng"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_oultline"
+                            android:padding="4dp"
+                            android:textColor="@color/teal_200"
+                            android:textSize="10pt" />
+                    </LinearLayout>
+                    <TextView
+                        android:id="@+id/get_coordinate_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:drawableRight="@drawable/baseline_refresh_24"
+                        android:drawableTint="@color/teal_200"
+                        android:focusable="true"
+                        android:clickable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:padding="16dp"
+                        />
                 </LinearLayout>
 
                 <LinearLayout

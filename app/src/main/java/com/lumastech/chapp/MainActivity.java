@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -17,13 +18,19 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.lumastech.chapp.databinding.ActivityMainBinding;
+import com.lumastech.chapp.ui.home.HomeFragment;
 import com.lumastech.chapp.ui.profile.ProfileFragment;
 
-public class MainActivity extends AppCompatActivity {
+import org.json.JSONObject;
 
+import java.util.Objects;
+
+public class MainActivity extends AppCompatActivity implements HomeFragment.OnFragmentNav {
+    NavController navController;
     private AppBarConfiguration mAppBarConfiguration;
-    private ActivityMainBinding binding;
+    private ActivityMainBinding binding, bindingHome;
     public  Utility utility;
+    TextView centersTextView, emergenceTextView, myProfileTextView, mapsTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +40,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         utility = new Utility(this);
         utility.writeToFile("notnew", "notnew");
+//        centersTextView = findViewById(R.id.centers);
+//        emergenceTextView = findViewById(R.id.emergence);
+//        myProfileTextView = findViewById(R.id.my_profile);
+//        mapsTextView = findViewById(R.id.maps);
+
+//        TextView dName = binding.drawerLayout.findViewById(R.id.d_name);
+//        TextView dEmail = binding.drawerLayout.findViewById(R.id.d_email);
+//
+//        dName.setText(getValueFromJsom("name"));
+//        dEmail.setText(getValueFromJsom("email"));
 
 
         setSupportActionBar(binding.appBarMain.toolbar);
@@ -45,13 +62,14 @@ public class MainActivity extends AppCompatActivity {
 
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
+
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_profile, R.id.nav_maps, R.id.nav_bmi, R.id.nav_health_centers, R.id.nav_sos_settings, R.id.nav_settings)
+                R.id.nav_home, R.id.nav_profile, R.id.nav_maps, R.id.nav_bmi, R.id.nav_health_centers, R.id.nav_sos_settings, R.id.nav_settings, R.id.my_profile)
                 .setOpenableLayout(drawer)
                 .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+        navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
     }
@@ -68,5 +86,25 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    @Override
+    public void onButtonClicked(int id) {
+        navController.navigate(id);
+    }
+
+    public String getValueFromJsom(String string){
+        String value = "";
+        try {
+            String profileText = utility.readFile("user");
+            if(!Objects.equals(profileText, "null")) {
+                JSONObject userObject = new JSONObject(profileText);
+                value = userObject.getString(string);
+            }
+        }catch (Exception e){
+            utility.generalDialog(e.getLocalizedMessage());
+        }
+
+        return  value;
     }
 }

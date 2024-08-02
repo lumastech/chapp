@@ -1,6 +1,7 @@
 package com.lumastech.chapp;
 
 import com.lumastech.chapp.Models.ApiResponse;
+import com.lumastech.chapp.Models.Center;
 import com.lumastech.chapp.Models.RegisterRequest;
 import com.lumastech.chapp.Models.RegisterResponse;
 import com.lumastech.chapp.Models.Sos;
@@ -51,6 +52,21 @@ public interface ApiInterface {
     @Headers({"Content-Type: application/json", "accept: application/json"})
     @POST("sos/create")
     Call<ApiResponse> sosCreate(@Body Sos data, @Header("Authorization") String token);
+
+    // CREATE CENTER
+    @Headers({"Content-Type: application/json", "accept: application/json"})
+    @POST("center/create")
+    Call<ApiResponse> centerCreate(@Body Center data, @Header("Authorization") String token);
+
+    // UPDATE CENTER
+    @Headers({"Content-Type: application/json", "accept: application/json"})
+    @POST("center/update")
+    Call<ApiResponse> centerUpdate(@Body Center data, @Header("Authorization") String token);
+
+    // GET SOS
+    @Headers({"Content-Type: application/json", "accept: application/json"})
+    @GET("centers")
+    Call<ApiResponse> centersGet(@Header("Authorization") String token);
 
     // SEND SOS EMERGENCE MESSAGE
     @Headers({"Content-Type: application/json", "accept: application/json"})

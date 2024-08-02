@@ -1,14 +1,45 @@
 package com.lumastech.chapp.Models;
 
 public class Center {
-    String user_id,
+    String id, user_id,
     name,
     email,
     phone,
-    type,
+    address,
     description,
-    status,
-    coordinates;
+    status, image, lat, lng;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public String getLat() {
+        return lat;
+    }
+
+    public void setLat(String lat) {
+        this.lat = lat;
+    }
+
+    public String getLng() {
+        return lng;
+    }
+
+    public void setLng(String lng) {
+        this.lng = lng;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 
     public String getUser_id() {
         return user_id;
@@ -42,14 +73,6 @@ public class Center {
         this.phone = phone;
     }
 
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
     public String getDescription() {
         return description;
     }
@@ -66,11 +89,12 @@ public class Center {
         this.status = status;
     }
 
-    public String getCoordinates() {
-        return coordinates;
+
+    public String getAddress() {
+        return address;
     }
 
-    public void setCoordinates(String coordinates) {
-        this.coordinates = coordinates;
+    public void setAddress(String address) {
+        this.address = address;
     }
 }

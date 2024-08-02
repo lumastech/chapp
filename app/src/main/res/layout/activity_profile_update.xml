@@ -18,12 +18,27 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="wrap_content"
-                android:layout_height="213dp"
-                android:layout_marginTop="15dp"
-                tools:srcCompat="@tools:sample/backgrounds/scenic" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/outline_black"
+                android:padding="2dp">
+
+                <ImageView
+                    android:id="@+id/IVPreviewImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="213dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/placeholder_image"
+                    tools:srcCompat="@tools:sample/backgrounds/scenic" />
+                <Button
+                    android:id="@+id/BSelectImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Add image"
+                    android:textColor="@color/white"/>
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/email"

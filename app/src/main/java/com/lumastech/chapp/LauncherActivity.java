@@ -35,4 +35,11 @@ public class LauncherActivity extends AppCompatActivity {
         utility  = new Utility(this);
         utility.authCheck();
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        utility  = new Utility(this);
+        utility.authCheck();
+    }
 }

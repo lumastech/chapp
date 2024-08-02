@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
 import com.lumastech.chapp.R;
 import com.lumastech.chapp.Utility;
@@ -86,12 +87,14 @@ public class ProfileFragment extends Fragment {
     }
 
     public void profile(){
+        profilePicture.setImageResource(R.drawable.profile_ph);
         name.setText(getValueFromJsom("name"));
         email.setText(getValueFromJsom("email"));
         phone.setText(getValueFromJsom("phone"));
         town.setText(getValueFromJsom("town"));
         address.setText(getValueFromJsom("address"));
         gender.setText(getValueFromJsom("sex"));
+//        Glide.with(requireContext()).load("https://via.placeholder.com/150").into(profilePicture);
         if (notifyProfileUpdate){
             utility.generalDialog("Please update your profile!");
         }

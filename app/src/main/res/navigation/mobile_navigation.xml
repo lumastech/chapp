@@ -41,15 +41,16 @@
         android:label="@string/sos_settings"
         tools:layout="@layout/fragment_sos_settings"/>
 
-<!--    <fragment-->
-<!--        android:id="@+id/nav_settings"-->
-<!--        android:name="com.lumastech.chapp.ui.settings.SettingsFragment"-->
-<!--        android:label="@string/action_settings"-->
-<!--        tools:layout="@layout/fragment_settings"/>-->
+    <fragment
+        android:id="@+id/my_profile"
+        android:name="com.lumastech.chapp.ui.profile.ProfileFragment"
+        android:label="@string/my_profile"
+        tools:layout="@layout/fragment_settings"/>
 
     <fragment
         android:id="@+id/nav_settings"
         android:name="com.lumastech.chapp.ui.profile.ProfileUpdateFragment"
         android:label="Profile Update"
         tools:layout="@layout/fragment_profile_update"/>
+
 </navigation>

@@ -5,10 +5,12 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.ConnectivityManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -41,6 +43,9 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class ProfileUpdateActivity extends AppCompatActivity {
+    Button BSelectImage;
+    ImageView IVPreviewImage;
+    int SELECT_PICTURE = 200;
     private EditText nameEdit;
     private EditText phoneEdit;
     private EditText addressEdit;
@@ -72,9 +77,18 @@ public class ProfileUpdateActivity extends AppCompatActivity {
         townEdit = findViewById(R.id.town);
         male = findViewById(R.id.male);
         female = findViewById(R.id.female);
+        BSelectImage = findViewById(R.id.BSelectImage);
+        IVPreviewImage = findViewById(R.id.IVPreviewImage);
         Button updateBtn = findViewById(R.id.update_btn);
 
         getProfile();
+
+        BSelectImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                imageChooser();
+            }
+        });
 
         updateBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -277,6 +291,26 @@ public class ProfileUpdateActivity extends AppCompatActivity {
 
         }catch (Exception e){
             utility.generalDialog(e.getLocalizedMessage());
+        }
+    }
+
+    void imageChooser() {
+        Intent i = new Intent();
+        i.setType("image/*");
+        i.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(i, "Select Picture"), SELECT_PICTURE);
+    }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (resultCode == RESULT_OK) {
+            if (requestCode == SELECT_PICTURE) {
+                Uri selectedImageUri = data.getData();
+                if (null != selectedImageUri) {
+                    IVPreviewImage.setImageURI(selectedImageUri);
+                }
+            }
         }
     }
 }
